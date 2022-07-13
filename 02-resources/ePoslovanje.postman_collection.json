@@ -1,0 +1,2587 @@
+{
+	"info": {
+		"_postman_id": "f26bf1aa-5037-4614-8ee7-2c04a868347c",
+		"name": "ePoslovanje",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21421904"
+	},
+	"item": [
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "Get all category",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/category",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get by id category",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/category/1",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"category",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add new category",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"ePos dodavanje nova kat\",\r\n    \"imagePath\": \"/static/categories/dodavanjenovakat.png\",\r\n    \"parentCategoryId\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/category",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"category"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add new category - bad request - required property",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"ePos kategorija3\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/category",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"category"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "161"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"a1-EldtlDHv+h90x6C+JqH9jQv+miI\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 02 Jul 2022 19:08:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"instancePath\": \"\",\n        \"schemaPath\": \"#/required\",\n        \"keyword\": \"required\",\n        \"params\": {\n            \"missingProperty\": \"imagePath\"\n        },\n        \"message\": \"must have required property 'imagePath'\"\n    }\n]"
+						},
+						{
+							"name": "Add new category - successful",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"ePos kategorija4\",\r\n    \"imagePath\": \"/static/categories/ePoskat4.png\", \r\n    \"parentCategoryId\": 2\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/category",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"category"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "419"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1a3-e8nMZIH/4IU1WWS1DtoRLk5i6Do\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 02 Jul 2022 19:11:14 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"parentCategoryId\": 2,\n    \"parentCategory\": {\n        \"parentCategoryId\": null,\n        \"parentCategory\": null,\n        \"subcategories\": [\n            {\n                \"parentCategoryId\": 2,\n                \"parentCategory\": null,\n                \"subcategories\": [],\n                \"categoryId\": 6,\n                \"name\": \"ePos kategorija4\",\n                \"imagePath\": \"/static/categories/ePoskat4.png\"\n            }\n        ],\n        \"categoryId\": 2,\n        \"name\": \"Kategorija 2\",\n        \"imagePath\": \"2.jpg\"\n    },\n    \"subcategories\": [],\n    \"categoryId\": 6,\n    \"name\": \"ePos kategorija4\",\n    \"imagePath\": \"/static/categories/ePoskat4.png\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Edit category",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Izmenjena kategorija \",\r\n    \"imagePath\": \"/static/categories/izmenjena.jpg\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/category/11",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"category",
+								"11"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Edit category - successful edit",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Izmenjena kategorija danas\",\r\n    \"imagePath\": \"/static/categories/danasnjaizmenjena.jpg\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/category/1",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"category",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "322"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"142-ekPy0c/i/c2xxQo++3+uUYywMFQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 02 Jul 2022 22:23:11 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"parentCategoryId\": null,\n    \"parentCategory\": null,\n    \"subcategories\": [\n        {\n            \"parentCategoryId\": 1,\n            \"parentCategory\": null,\n            \"subcategories\": [],\n            \"categoryId\": 5,\n            \"name\": \"ePos kategorija2\",\n            \"imagePath\": \"/static/categories/ePoskat2.png\"\n        }\n    ],\n    \"categoryId\": 1,\n    \"name\": \"Izmenjena kategorija danas\",\n    \"imagePath\": \"/static/categories/danasnjaizmenjena.jpg\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete category",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/category/11",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"category",
+								"11"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete by id - with existing id",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/category/4",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"category",
+										"4"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "52"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"34-3Woi6Y4X+M3qVvsIQ1xzM++GrlM\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 02 Jul 2022 22:58:04 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errorCode\": 0,\n    \"errorMessage\": \"One record deleted.\"\n}"
+						},
+						{
+							"name": "Delete by id - with id that does not exist",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/category/15",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"category",
+										"15"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "94"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"5e-UhnHgD0uZETxtS7Z1winTF8GIN0\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 02 Jul 2022 22:59:34 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errorCode\": -1,\n    \"errorMessage\": \"This record could not be deleted because it does n ot exist.\"\n}"
+						},
+						{
+							"name": "Delete by id - with an existing id with subcategories",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/category/9",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"category",
+										"9"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "52"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"34-3Woi6Y4X+M3qVvsIQ1xzM++GrlM\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 02 Jul 2022 23:02:53 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errorCode\": 0,\n    \"errorMessage\": \"One record deleted.\"\n}"
+						}
+					]
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Article",
+			"item": [
+				{
+					"name": "Get by id article",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/article/69",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"article",
+								"69"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get articles by category id - ok",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/category/2/article",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"category",
+										"2",
+										"article"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:3000"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "3158"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"c56-xTaLC6GVKKCAuvDr+U9skK3Boaw\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 12 Jul 2022 14:58:01 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"material\": [],\n        \"prices\": [],\n        \"photos\": [\n            {\n                \"photoId\": 2,\n                \"imagePath\": \"static/uploads/2022/07/2d42530e-23ce-43a2-b35b-13515c026677-1.jpg\"\n            }\n        ],\n        \"colors\": [],\n        \"sizes\": [],\n        \"colorSizes\": [],\n        \"articleId\": 6,\n        \"title\": \"artikal2\",\n        \"description\": \"Neeeekiiiii oooppiiiisss2\",\n        \"isActive\": true,\n        \"isPromoted\": true,\n        \"createdAt\": \"2022-07-05T16:07:51.000Z\",\n        \"categoryId\": 2,\n        \"currentPrice\": 20.32\n    },\n    {\n        \"material\": [],\n        \"prices\": [],\n        \"photos\": [\n            {\n                \"photoId\": 4,\n                \"imagePath\": \"static/uploads/2022/07/1c8ab4fe-b850-4e71-bf80-226517e049c0-6.jpg\"\n            }\n        ],\n        \"colors\": [],\n        \"sizes\": [],\n        \"colorSizes\": [],\n        \"articleId\": 8,\n        \"title\": \"artikal4\",\n        \"description\": \"Neeeekiiiii oooppiiiisss4\",\n        \"isActive\": true,\n        \"isPromoted\": true,\n        \"createdAt\": \"2022-07-05T16:49:32.000Z\",\n        \"categoryId\": 2,\n        \"currentPrice\": 40.32\n    },\n    {\n        \"material\": [],\n        \"prices\": [],\n        \"photos\": [\n            {\n                \"photoId\": 29,\n                \"imagePath\": \"static/uploads/2022/07/6ee77e98-25ae-4c64-8b13-6241a2a8940c-2.jpg\"\n            }\n        ],\n        \"colors\": [],\n        \"sizes\": [],\n        \"colorSizes\": [],\n        \"articleId\": 34,\n        \"title\": \"artika9\",\n        \"description\": \"Opis8\",\n        \"isActive\": true,\n        \"isPromoted\": true,\n        \"createdAt\": \"2022-07-06T14:53:45.000Z\",\n        \"categoryId\": 2,\n        \"currentPrice\": 11.12\n    },\n    {\n        \"material\": [],\n        \"prices\": [],\n        \"photos\": [\n            {\n                \"photoId\": 54,\n                \"imagePath\": \"static/uploads/2022/07/d80ab643-0db2-4a42-8b02-04876acf5569-5.jpg\"\n            }\n        ],\n        \"colors\": [],\n        \"sizes\": [],\n        \"colorSizes\": [],\n        \"articleId\": 60,\n        \"title\": \"artikal13\",\n        \"description\": \"Opis13\",\n        \"isActive\": true,\n        \"isPromoted\": true,\n        \"createdAt\": \"2022-07-06T19:27:43.000Z\",\n        \"categoryId\": 2,\n        \"currentPrice\": 14.12\n    },\n    {\n        \"material\": [],\n        \"prices\": [],\n        \"photos\": [\n            {\n                \"photoId\": 55,\n                \"imagePath\": \"static/uploads/2022/07/9aaca639-fb2e-4fc4-8f75-c3983a3ad187-5.jpg\"\n            }\n        ],\n        \"colors\": [],\n        \"sizes\": [],\n        \"colorSizes\": [],\n        \"articleId\": 61,\n        \"title\": \"artikal14\",\n        \"description\": \"Opis14\",\n        \"isActive\": true,\n        \"isPromoted\": true,\n        \"createdAt\": \"2022-07-06T19:36:35.000Z\",\n        \"categoryId\": 2,\n        \"currentPrice\": 12.12\n    },\n    {\n        \"material\": [],\n        \"prices\": [],\n        \"photos\": [\n            {\n                \"photoId\": 60,\n                \"imagePath\": \"static/uploads/2022/07/beb9c16b-a337-4f20-b1a6-e920d153b5ad-5.jpg\"\n            }\n        ],\n        \"colors\": [],\n        \"sizes\": [],\n        \"colorSizes\": [],\n        \"articleId\": 66,\n        \"title\": \"artikal18\",\n        \"description\": \"Opis18\",\n        \"isActive\": true,\n        \"isPromoted\": true,\n        \"createdAt\": \"2022-07-06T23:24:25.000Z\",\n        \"categoryId\": 2,\n        \"currentPrice\": 15.12\n    },\n    {\n        \"material\": [],\n        \"prices\": [],\n        \"photos\": [\n            {\n                \"photoId\": 61,\n                \"imagePath\": \"static/uploads/2022/07/f3cd4cf2-9ebc-4e2a-8d32-1d7f37b591e3-5.jpg\"\n            }\n        ],\n        \"colors\": [],\n        \"sizes\": [],\n        \"colorSizes\": [],\n        \"articleId\": 67,\n        \"title\": \"novi artikal 222222\",\n        \"description\": \"opis neki 22222\",\n        \"isActive\": false,\n        \"isPromoted\": false,\n        \"createdAt\": \"2022-07-06T23:49:18.000Z\",\n        \"categoryId\": 2,\n        \"currentPrice\": 15\n    },\n    {\n        \"material\": [],\n        \"prices\": [],\n        \"photos\": [\n            {\n                \"photoId\": 62,\n                \"imagePath\": \"static/uploads/2022/07/170c6639-569d-466e-b0ef-b007ace15d6b-5.jpg\"\n            }\n        ],\n        \"colors\": [],\n        \"sizes\": [],\n        \"colorSizes\": [],\n        \"articleId\": 68,\n        \"title\": \"artikal edit\",\n        \"description\": \"Opis edit\",\n        \"isActive\": false,\n        \"isPromoted\": true,\n        \"createdAt\": \"2022-07-07T11:29:18.000Z\",\n        \"categoryId\": 2,\n        \"currentPrice\": 22.12\n    },\n    {\n        \"material\": [],\n        \"prices\": [],\n        \"photos\": [\n            {\n                \"photoId\": 88,\n                \"imagePath\": \"static/uploads/2022/07/478d4d9e-c2e9-4c41-aaaf-4a393004b9c4-10248_una-703032-2-verde-2-450x540.jpg\"\n            }\n        ],\n        \"colors\": [],\n        \"sizes\": [],\n        \"colorSizes\": [],\n        \"articleId\": 89,\n        \"title\": \"Sandale Edit\",\n        \"description\": \"opis neki edit\",\n        \"isActive\": false,\n        \"isPromoted\": false,\n        \"createdAt\": \"2022-07-12T15:50:05.000Z\",\n        \"categoryId\": 2,\n        \"currentPrice\": 15\n    }\n]"
+						},
+						{
+							"name": "Get by id article - ok",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/article/88",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"article",
+										"88"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:3000"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1034"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"40a-yetvAy1Of2Q3gXdQCoueudIFwfQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 12 Jul 2022 14:59:13 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"material\": [\n        {\n            \"materialId\": 1,\n            \"name\": \"foam\"\n        }\n    ],\n    \"prices\": [\n        {\n            \"priceId\": 90,\n            \"createdAt\": \"2022-07-12T15:47:07.000Z\",\n            \"price\": 16\n        }\n    ],\n    \"photos\": [\n        {\n            \"photoId\": 87,\n            \"imagePath\": \"static/uploads/2022/07/416f3de1-1d41-42a5-b1cd-b8217a3d1a0e-10248_una-703032-2-verde-2-450x540.jpg\"\n        }\n    ],\n    \"colors\": [\n        {\n            \"colorId\": 1,\n            \"name\": \"plava\"\n        },\n        {\n            \"colorId\": 2,\n            \"name\": \"bela\"\n        }\n    ],\n    \"sizes\": [\n        {\n            \"sizeId\": 3,\n            \"name\": \"39\"\n        },\n        {\n            \"sizeId\": 1,\n            \"name\": \"37\"\n        }\n    ],\n    \"colorSizes\": [\n        {\n            \"colorName\": \"plava\",\n            \"colorId\": 1,\n            \"sizeId\": 1,\n            \"sizeName\": \"37\",\n            \"quantity\": 15\n        },\n        {\n            \"colorName\": \"bela\",\n            \"colorId\": 2,\n            \"sizeId\": 1,\n            \"sizeName\": \"37\",\n            \"quantity\": 22\n        },\n        {\n            \"colorName\": \"plava\",\n            \"colorId\": 1,\n            \"sizeId\": 3,\n            \"sizeName\": \"39\",\n            \"quantity\": 18\n        },\n        {\n            \"colorName\": \"bela\",\n            \"colorId\": 2,\n            \"sizeId\": 3,\n            \"sizeName\": \"39\",\n            \"quantity\": 26\n        }\n    ],\n    \"articleId\": 88,\n    \"title\": \"Sandale 11111\",\n    \"description\": \"Neki opis111111\",\n    \"isActive\": true,\n    \"isPromoted\": false,\n    \"createdAt\": \"2022-07-12T15:47:07.000Z\",\n    \"categoryId\": 20,\n    \"currentPrice\": 16,\n    \"category\": {\n        \"parentCategoryId\": 19,\n        \"parentCategory\": null,\n        \"subcategories\": [],\n        \"categoryId\": 20,\n        \"name\": \"Sandale\",\n        \"imagePath\": \"/static/categories/sandale.png\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Add new article",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "data",
+									"value": "{\n   \"title\":\"Sandale 2222\",\n   \"description\":\"Neki opis2222\",\n   \"isActive\":true,\n   \"isPromoted\":false,\n   \"price\":7,\n   \"categoryId\":20,\n   \"material\":[\n      {\n         \"materialId\":2\n      }\n   ],\n   \"colors\":[\n      {\n         \"colorId\":2\n      },\n      {\n         \"colorId\":3\n      }\n   ],\n   \"sizes\":[\n      {\n         \"sizeId\":2\n      },\n      {\n         \"sizeId\":4\n      }\n   ],\n   \"colorSizes\":[\n      {\n         \"colorId\":2,\n         \"sizeId\":2,\n         \"quantity\":11\n      },\n      {\n         \"colorId\":3,\n         \"sizeId\":2,\n         \"quantity\":13\n      },\n      {\n         \"colorId\":2,\n         \"sizeId\":4,\n         \"quantity\":19\n      },\n      {\n         \"colorId\":3,\n         \"sizeId\":4,\n         \"quantity\":5\n      }\n   ]\n}",
+									"type": "text"
+								},
+								{
+									"key": "photo",
+									"type": "file",
+									"src": "/C:/Users/Miljana/Desktop/sandale-moda-2022-espadrile.jpg"
+								},
+								{
+									"key": "photo",
+									"type": "file",
+									"src": [],
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{API_URL}}/article",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"article"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add new article - ok",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "data",
+											"value": "{\n   \"title\":\"Sandale 3r5543\",\n   \"description\":\"Brend - OPPOSITE; Šifra  modela - L81559; Materijal lice -Tekstil; Materijal postava - Tekstil pamuk; Đon - tpg\",\n   \"isActive\":true,\n   \"isPromoted\":false,\n   \"price\":23,\n   \"categoryId\":32,\n   \"material\":[\n      {\n         \"materialId\":6\n      }\n   ],\n   \n   \"colorSizes\":[\n      {\n         \"colorId\":1,\n         \"sizeId\":1,\n         \"quantity\":21\n      },\n      {\n         \"colorId\":1,\n         \"sizeId\":4,\n         \"quantity\":17\n      },\n      {\n         \"colorId\":4,\n         \"sizeId\":1,\n         \"quantity\":33\n      },\n      {\n         \"colorId\":4,\n         \"sizeId\":4,\n         \"quantity\":15\n      }\n   ]\n}",
+											"type": "text"
+										},
+										{
+											"key": "photo",
+											"type": "file",
+											"src": "/C:/Users/Miljana/Desktop/ls80702-1-bei-39.webp"
+										},
+										{
+											"key": "photo",
+											"type": "file",
+											"src": [],
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{API_URL}}/article",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"article"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:3000"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "952"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3b8-gu3xx9+G1tBdBcxDswwM3UgSll8\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 13 Jul 2022 10:30:00 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"material\": [\n        {\n            \"materialId\": 6,\n            \"name\": \"textile\"\n        }\n    ],\n    \"prices\": [],\n    \"photos\": [\n        {\n            \"photoId\": 91,\n            \"imagePath\": \"static/uploads/2022/07/732dbf05-28d1-41d2-abb9-0cd0272bdd2b-ls80702-1-bei-39w.ebp\"\n        }\n    ],\n    \"colors\": [],\n    \"sizes\": [],\n    \"colorSizes\": [\n        {\n            \"colorName\": \"plava\",\n            \"colorId\": 1,\n            \"sizeId\": 1,\n            \"sizeName\": \"37\",\n            \"quantity\": 21\n        },\n        {\n            \"colorName\": \"braon\",\n            \"colorId\": 4,\n            \"sizeId\": 1,\n            \"sizeName\": \"37\",\n            \"quantity\": 33\n        },\n        {\n            \"colorName\": \"plava\",\n            \"colorId\": 1,\n            \"sizeId\": 4,\n            \"sizeName\": \"40\",\n            \"quantity\": 17\n        },\n        {\n            \"colorName\": \"braon\",\n            \"colorId\": 4,\n            \"sizeId\": 4,\n            \"sizeName\": \"40\",\n            \"quantity\": 15\n        }\n    ],\n    \"articleId\": 92,\n    \"title\": \"Sandale 3r5543\",\n    \"description\": \"Brend - OPPOSITE; Šifra  modela - L81559; Materijal lice -Tekstil; Materijal postava - Tekstil pamuk; Đon - tpg\",\n    \"isActive\": true,\n    \"isPromoted\": false,\n    \"createdAt\": \"2022-07-13T11:30:00.000Z\",\n    \"categoryId\": 32,\n    \"currentPrice\": 23,\n    \"category\": {\n        \"parentCategoryId\": 30,\n        \"parentCategory\": null,\n        \"subcategories\": [],\n        \"categoryId\": 32,\n        \"name\": \"Sandale\",\n        \"imagePath\": \"/static/categories/sandale.png\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Edit article without photo",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"title\":\"novi artikal 222222\",\r\n   \"description\":\"opis neki 22222\",\r\n   \"isActive\":false,\r\n   \"isPromoted\":false,\r\n   \"price\":15,\r\n   \"categoryId\":2,\r\n   \"material\":\"plastic\",\r\n   \"colors\":[\r\n      {\r\n         \"colorId\":1\r\n      },\r\n      {\r\n         \"colorId\":2\r\n      }\r\n   ],\r\n   \"sizes\":[\r\n      {\r\n         \"sizeId\":1\r\n      },\r\n      {\r\n         \"sizeId\":2\r\n      }\r\n   ],\r\n   \"colorSizes\":[\r\n      {\r\n         \"colorId\":2,\r\n         \"sizeId\":3,\r\n         \"quantity\":22\r\n      },\r\n      {\r\n         \"colorId\":2,\r\n         \"sizeId\":4,\r\n         \"quantity\":22\r\n      },\r\n      {\r\n         \"colorId\":4,\r\n         \"sizeId\":3,\r\n         \"quantity\":22\r\n      },\r\n      {\r\n         \"colorId\":4,\r\n         \"sizeId\":4,\r\n         \"quantity\":22\r\n      }\r\n   ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/article/67",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"article",
+								"67"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Edit article without photo - ok",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n   \"title\":\"Sandale Edit\",\r\n   \"description\":\"opis neki edit\",\r\n   \"isActive\":false,\r\n   \"isPromoted\":false,\r\n   \"price\":15,\r\n   \"categoryId\":2,\r\n   \"material\":[\r\n      {\r\n         \"materialId\":1\r\n      }\r\n   ],\r\n   \"colors\":[\r\n      {\r\n         \"colorId\":1\r\n      },\r\n      {\r\n         \"colorId\":2\r\n      }\r\n   ],\r\n   \"sizes\":[\r\n      {\r\n         \"sizeId\":3\r\n      },\r\n      {\r\n         \"sizeId\":1\r\n      }\r\n   ],\r\n   \"colorSizes\":[\r\n      {\r\n         \"colorId\":1,\r\n         \"sizeId\":3,\r\n         \"quantity\":11\r\n      },\r\n      {\r\n         \"colorId\":2,\r\n         \"sizeId\":3,\r\n         \"quantity\":11\r\n      },\r\n      {\r\n         \"colorId\":1,\r\n         \"sizeId\":1,\r\n         \"quantity\":11\r\n      },\r\n      {\r\n         \"colorId\":2,\r\n         \"sizeId\":1,\r\n         \"quantity\":11\r\n      }\r\n   ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/article/89",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"article",
+										"89"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:3000"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1078"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"436-hXnCKb8Z3va4V0Y7yEAJlz71x5w\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 12 Jul 2022 14:51:22 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"material\": [\n        {\n            \"materialId\": 1,\n            \"name\": \"foam\"\n        }\n    ],\n    \"prices\": [\n        {\n            \"priceId\": 91,\n            \"createdAt\": \"2022-07-12T15:50:05.000Z\",\n            \"price\": 16\n        },\n        {\n            \"priceId\": 92,\n            \"createdAt\": \"2022-07-12T15:51:22.000Z\",\n            \"price\": 15\n        }\n    ],\n    \"photos\": [\n        {\n            \"photoId\": 88,\n            \"imagePath\": \"static/uploads/2022/07/478d4d9e-c2e9-4c41-aaaf-4a393004b9c4-10248_una-703032-2-verde-2-450x540.jpg\"\n        }\n    ],\n    \"colors\": [\n        {\n            \"colorId\": 1,\n            \"name\": \"plava\"\n        },\n        {\n            \"colorId\": 2,\n            \"name\": \"bela\"\n        }\n    ],\n    \"sizes\": [\n        {\n            \"sizeId\": 3,\n            \"name\": \"39\"\n        },\n        {\n            \"sizeId\": 1,\n            \"name\": \"37\"\n        }\n    ],\n    \"colorSizes\": [\n        {\n            \"colorName\": \"plava\",\n            \"colorId\": 1,\n            \"sizeId\": 1,\n            \"sizeName\": \"37\",\n            \"quantity\": 11\n        },\n        {\n            \"colorName\": \"bela\",\n            \"colorId\": 2,\n            \"sizeId\": 1,\n            \"sizeName\": \"37\",\n            \"quantity\": 11\n        },\n        {\n            \"colorName\": \"plava\",\n            \"colorId\": 1,\n            \"sizeId\": 3,\n            \"sizeName\": \"39\",\n            \"quantity\": 11\n        },\n        {\n            \"colorName\": \"bela\",\n            \"colorId\": 2,\n            \"sizeId\": 3,\n            \"sizeName\": \"39\",\n            \"quantity\": 11\n        }\n    ],\n    \"articleId\": 89,\n    \"title\": \"Sandale Edit\",\n    \"description\": \"opis neki edit\",\n    \"isActive\": false,\n    \"isPromoted\": false,\n    \"createdAt\": \"2022-07-12T15:50:05.000Z\",\n    \"categoryId\": 2,\n    \"currentPrice\": 15,\n    \"category\": {\n        \"parentCategoryId\": null,\n        \"parentCategory\": null,\n        \"subcategories\": [],\n        \"categoryId\": 2,\n        \"name\": \"Kategorija 2\",\n        \"imagePath\": \"2.jpg\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete article",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/article/70",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"article",
+								"70"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete article photo",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/article/72/photo/67",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"article",
+								"72",
+								"photo",
+								"67"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete article photo - ok",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/article/71/photo/65",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"article",
+										"71",
+										"photo",
+										"65"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "46"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2e-AuG/6olxT2ii7y+AnP8gE6EhQlw\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Jul 2022 14:19:04 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errorCode\": 0,\n    \"errorMessage\": \"Photo Deleted\"\n}"
+						},
+						{
+							"name": "Delete article photo - image id doesn't exist",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/article/72/photo/67",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"article",
+										"72",
+										"photo",
+										"67"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "9"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"9-0gXL1ngzMqISxa6S1zx3F4wtLyg\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Jul 2022 14:22:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "Not Found"
+						}
+					]
+				},
+				{
+					"name": "Add new photo in article",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "photo",
+									"type": "file",
+									"src": "/C:/Users/Miljana/Desktop/shoes/img/products/1.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{API_URL}}/article/91/photo",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"article",
+								"91",
+								"photo"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add new photo in article - ok",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "photo",
+											"type": "file",
+											"src": "/C:/Users/Miljana/Desktop/shoes/img/products/1.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{API_URL}}/article/71/photo",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"article",
+										"71",
+										"photo"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "898"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"382-vfFIrwSMOlJQ0qxMlXo6b3q7AEY\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Jul 2022 16:38:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"prices\": [],\n    \"photos\": [\n        {\n            \"photoId\": 67,\n            \"imagePath\": \"static/uploads/2022/07/4b913207-2b9e-49b2-94c4-2e7ce7fa03b4-1.jpg\"\n        }\n    ],\n    \"colors\": [\n        {\n            \"colorId\": 1,\n            \"name\": \"plava\"\n        },\n        {\n            \"colorId\": 2,\n            \"name\": \"bela\"\n        }\n    ],\n    \"sizes\": [\n        {\n            \"sizeId\": 1,\n            \"name\": 37\n        },\n        {\n            \"sizeId\": 2,\n            \"name\": 38\n        }\n    ],\n    \"colorSizes\": [\n        {\n            \"colorName\": \"bela\",\n            \"colorId\": 2,\n            \"sizeId\": 3,\n            \"sizeName\": 39,\n            \"quantity\": 26\n        },\n        {\n            \"colorName\": \"braon\",\n            \"colorId\": 4,\n            \"sizeId\": 3,\n            \"sizeName\": 39,\n            \"quantity\": 17\n        },\n        {\n            \"colorName\": \"bela\",\n            \"colorId\": 2,\n            \"sizeId\": 4,\n            \"sizeName\": 40,\n            \"quantity\": 26\n        },\n        {\n            \"colorName\": \"braon\",\n            \"colorId\": 4,\n            \"sizeId\": 4,\n            \"sizeName\": 40,\n            \"quantity\": 17\n        }\n    ],\n    \"articleId\": 71,\n    \"title\": \"novi artikal  za brisanje\",\n    \"description\": \"opis neki za brisanje\",\n    \"isActive\": true,\n    \"isPromoted\": true,\n    \"createdAt\": \"2022-07-07T15:14:51.000Z\",\n    \"categoryId\": 2,\n    \"material\": \"rubber\",\n    \"currentPrice\": 34,\n    \"category\": {\n        \"parentCategoryId\": null,\n        \"parentCategory\": null,\n        \"subcategories\": [],\n        \"categoryId\": 2,\n        \"name\": \"Kategorija 2\",\n        \"imagePath\": \"2.jpg\"\n    }\n}"
+						},
+						{
+							"name": "article with id that doesn't exist",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "photo",
+											"type": "file",
+											"src": "/C:/Users/Miljana/Desktop/shoes/img/products/1.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{API_URL}}/article/91/photo",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"article",
+										"91",
+										"photo"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "9"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"9-0gXL1ngzMqISxa6S1zx3F4wtLyg\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Jul 2022 16:43:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "Not Found"
+						}
+					]
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Administrator",
+			"item": [
+				{
+					"name": "Get all admins",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/administrator/1",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"administrator",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get all admins - ok",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/administrator",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"administrator"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "242"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"f2-lcq2zPTB13X/FaGEdYAv0CKKpyE\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Jul 2022 19:32:09 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"administratorId\": 5,\n        \"username\": \"miljana\",\n        \"passwordHash\": \"$2b$11$BlWgwJPoeXGfyZNOYwZfIOlwOpR.fMYBQDtxqDCYPZW8VSrZoU99O\",\n        \"isActive\": true\n    },\n    {\n        \"administratorId\": 6,\n        \"username\": \"jovana\",\n        \"passwordHash\": \"adnagbkdbdsbxjkbaddkcbasbjxa\",\n        \"isActive\": true\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get admin by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/administrator/5",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"administrator",
+								"5"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get admin by id - ok",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/administrator/5",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"administrator",
+										"5"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "136"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"88-NLk3TX1YS2aZ+Ber+iKDa/rGz8E\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Jul 2022 19:33:06 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"administratorId\": 5,\n    \"username\": \"miljana\",\n    \"passwordHash\": \"$2b$11$BlWgwJPoeXGfyZNOYwZfIOlwOpR.fMYBQDtxqDCYPZW8VSrZoU99O\",\n    \"isActive\": true\n}"
+						},
+						{
+							"name": "admin doesn't exist",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/administrator/1",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"administrator",
+										"1"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "9"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"9-0gXL1ngzMqISxa6S1zx3F4wtLyg\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Jul 2022 19:34:23 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "Not Found"
+						}
+					]
+				},
+				{
+					"name": "Add new admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"ana\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/administrator",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"administrator"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add new admin - ok",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\" : \"anastasija\",\r\n    \"password\" : \"ana123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/administrator",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"administrator"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "139"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"8b-QNJgGdRT28HEZH0IA2YQjOVH9Fk\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Jul 2022 19:41:55 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"administratorId\": 7,\n    \"username\": \"anastasija\",\n    \"passwordHash\": \"$2b$11$eMF38.lZ6YBl9pczU3bhDeqdHMLhgmrIMmPtsMM62aNP8oEP/kJ1.\",\n    \"isActive\": true\n}"
+						},
+						{
+							"name": "min length validation for username",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\" : \"ana\",\r\n    \"password\" : \"ana123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/administrator",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"administrator"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "170"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"aa-U2SI1vXX59wPKzoDIaDmKjzlRF0\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Jul 2022 19:42:51 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"instancePath\": \"/username\",\n        \"schemaPath\": \"#/properties/username/minLength\",\n        \"keyword\": \"minLength\",\n        \"params\": {\n            \"limit\": 5\n        },\n        \"message\": \"must NOT have fewer than 5 characters\"\n    }\n]"
+						},
+						{
+							"name": "required password",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\" : \"ana\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/administrator",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"administrator"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "159"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"9f-ATKTkHI9bZSEn1IkQCuy8Hb8b3o\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Jul 2022 19:43:26 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"instancePath\": \"\",\n        \"schemaPath\": \"#/required\",\n        \"keyword\": \"required\",\n        \"params\": {\n            \"missingProperty\": \"password\"\n        },\n        \"message\": \"must have required property 'password'\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Edit admin",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\": \"miljanaa\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/administrator/7",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"administrator",
+								"7"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Edit admin - ok",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"password\": \"miljana123\",\r\n    \"isActive\": false\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/administrator/7",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"administrator",
+										"7"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "140"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"8c-4FvgrWJYFd2TzY1PtvuDpRWeceo\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Jul 2022 19:50:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"administratorId\": 7,\n    \"username\": \"anastasija\",\n    \"passwordHash\": \"$2b$11$UAySzpdimpkMSYXT4MT3l.97EpGcSGeMTX5QlKlCYiIvNmn02bEF.\",\n    \"isActive\": false\n}"
+						},
+						{
+							"name": "Edit admin - admin id doesn't exist",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"password\": \"miljana123\",\r\n    \"isActive\": false\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/administrator/1",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"administrator",
+										"1"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "9"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"9-0gXL1ngzMqISxa6S1zx3F4wtLyg\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Jul 2022 19:51:59 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "Not Found"
+						},
+						{
+							"name": "Edit admin - password must have 6 characters",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"password\": \"milj\",\r\n    \"isActive\": false\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/administrator/7",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"administrator",
+										"7"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "170"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"aa-3q2UZWHv7OPPGvxJASoDVb2XgKs\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Jul 2022 19:53:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"instancePath\": \"/password\",\n        \"schemaPath\": \"#/properties/password/minLength\",\n        \"keyword\": \"minLength\",\n        \"params\": {\n            \"limit\": 6\n        },\n        \"message\": \"must NOT have fewer than 6 characters\"\n    }\n]"
+						},
+						{
+							"name": "Edit admin - required value",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"password\": \"miljanaa\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/administrator/7",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"administrator",
+										"7"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "159"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"9f-QHRkMNWFjUVUcALsJmwNy8mfGHQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Jul 2022 19:53:55 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"instancePath\": \"\",\n        \"schemaPath\": \"#/required\",\n        \"keyword\": \"required\",\n        \"params\": {\n            \"missingProperty\": \"isActive\"\n        },\n        \"message\": \"must have required property 'isActive'\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Delete admin",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "Delete admin",
+							"host": [
+								"Delete admin"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete admin - ok",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/administrator/7",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"administrator",
+										"7"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "51"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"33-+/zHhg+84sQie8xvQmB03Ijwjc4\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Jul 2022 20:26:10 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errorCode\": 0,\n    \"errorMessage\": \"Deleted 1 records.\"\n}"
+						},
+						{
+							"name": "Delete admin - ID value cannot be smaller than 1",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/administrator/0",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"administrator",
+										"0"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "37"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"25-jYsmdHH2/dXZ0Oml0AEaOYe3OJE\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Jul 2022 20:26:55 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "The ID value cannot be smaller than 1"
+						}
+					]
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/auth/administrator/login",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"auth",
+								"administrator",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Login admin - ok",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\" : \"nikola\",\r\n    \"password\" : \"nikola123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/auth/administrator/login",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"auth",
+										"administrator",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1070"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"42e-kgZ9bb+w2yw5DkK8ieXqCbWQcUE\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Jul 2022 22:33:24 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"authToken\": \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiaWRlbnRpdHkiOiJuaWtvbGEiLCJyb2xlIjoiYWRtaW5pc3RyYXRvciIsImlhdCI6MTY1NzIzMzIwNCwiZXhwIjoxNjU3ODM4MDA0LCJpc3MiOiJsb2NhbGhvc3QifQ.MCH76qhXvlrIUtsCGxTn1pK5WO6eR7FTbegr0ewyP5tVVtldOEfASSzdxAZx8QkA8I3YxTVIKA6V8GSw5CZyjLV0zbA68Xefhdy6aIvw0xL4IDF1ZER3F1K6wyg5sZb7rLnSi3Fbq4bwloF3DqLRepUMptq6G-eZBAM8JnrGqhvoOCvioCX922g8xdM8Pt6qM7nBUd-B6BommRiSjECnLQPqbF1LrAB6y43VRLvT1aQx3Sbpck6uFx3I6PsQw1vSgV5XpgvIU6pTei5yw3dA7sgIQWLfS-91kpZCd90IEt80PUR0LZzJhekqbSlr__Ylf3VE6NUm1i4t8IjLUIS3TQ\",\n    \"refreshToken\": \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiaWRlbnRpdHkiOiJuaWtvbGEiLCJyb2xlIjoiYWRtaW5pc3RyYXRvciIsImlhdCI6MTY1NzIzMzIwNCwiZXhwIjoxNjU3ODM4MDA0LCJpc3MiOiJsb2NhbGhvc3QifQ.i0MXwnVRuh-QCr32CmJN6WFEu79IVT-9qDoCpqDAGEMT0vAFyjhn2DsVdege4K5txPbKPHJWm1bDoooGASet1yh-_mn1JSxYtfOcpWzE3-RDWCN25jgglBV7U_pkbGRtYAyH9xps5q9kvXG6S0t3CImJV1sshLw6btiV0x3iZ9N52HtBjiD-lEn2M5ahJSYbrxY0_6fb271CkIb5WQ8w19WOg9Yo90tr-2bWJAY0c-aXVSLQ918xj50_7PIl9WJtWoWLoMFCeeM4Ash8es8YG1aG2Rvs2-q_-Ap5-TpNIkchDOhsVV2cx1yYUAOnjKXqeJi5yVsEexfiMlmsfJAILA\"\n}"
+						},
+						{
+							"name": "Login admin - invalid password",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\" : \"nikola\",\r\n    \"password\" : \"nikola\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/auth/administrator/login",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"auth",
+										"administrator",
+										"login"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "30"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1e-AEZBxzwS0Pv3dycnw4UytHxCQYQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Jul 2022 22:33:53 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "Invalid administrator password"
+						},
+						{
+							"name": "Login admin - admin accout inactive",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\" : \"nikola\",\r\n    \"password\" : \"nikola\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}/auth/administrator/login",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"auth",
+										"administrator",
+										"login"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "31"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1f-gGX/kiT3mamimbuyelW2JDm0OL8\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Jul 2022 22:35:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "Administrator account inactive."
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAsImlkZW50aXR5IjoibWlsamFuYSIsInJvbGUiOiJhZG1pbmlzdHJhdG9yIiwiaWF0IjoxNjU3NzExODkwLCJleHAiOjE2NTgzMTY2OTAsImlzcyI6ImxvY2FsaG9zdCJ9.wFb_vFqgaZpASxfXUhik24_X3Spn67j1djUgbFkfYEqa22dKTjPBKHNCr0apmKLNsARj_1peVo-NBQjzlaXVTetDuEYmxmIVYvaj6N4qZJ1UdB6XFl0gFWa--JooXCJhSP6Bv0C8fBur9Z1G0Jo49up4aasEkMf_22O225dvvmINmj4gg51ntHTdopUs5aZIQW26DrP0xUXQj888cI8S_cK07nqT-Rj8xCYNPwvTNTBQ4TuboWfrJqjRJ-xhXWotVcpYL-XsILi3wgRuC-M82UXF8pJTVyosa4adyUxmrT6vmSVwfYrJZwJpyl-aVKZtsbhGnRBSQstjCUY88TYy2g",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Sizes",
+			"item": [
+				{
+					"name": "Get all sizes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/size",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"size"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get all sizes - ok",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/size",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"size"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:3000"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "101"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"65-WJ+oCPt56+N7Ti9fbHv6VbvJg0Y\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 12 Jul 2022 14:53:23 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"sizeId\": 1,\n        \"name\": \"37\"\n    },\n    {\n        \"sizeId\": 2,\n        \"name\": \"38\"\n    },\n    {\n        \"sizeId\": 3,\n        \"name\": \"39\"\n    },\n    {\n        \"sizeId\": 4,\n        \"name\": \"40\"\n    }\n]"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Colors",
+			"item": [
+				{
+					"name": "Get all colors",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": [
+						{
+							"name": "Get all colors - ok",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/color",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"color"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:3000"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "115"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"73-/SEP1jxRpcboCLzVrw4zpU40Fhk\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 12 Jul 2022 15:03:11 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"colorId\": 1,\n        \"name\": \"plava\"\n    },\n    {\n        \"colorId\": 2,\n        \"name\": \"bela\"\n    },\n    {\n        \"colorId\": 3,\n        \"name\": \"crna\"\n    },\n    {\n        \"colorId\": 4,\n        \"name\": \"braon\"\n    }\n]"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Material",
+			"item": [
+				{
+					"name": "Get all materials",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": [
+						{
+							"name": "Get all materials - ok",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/material",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"material"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:3000"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "203"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"cb-JKvJ929n2iUOeKnKzj301RKF6Nw\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 12 Jul 2022 14:53:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"materialId\": 1,\n        \"name\": \"foam\"\n    },\n    {\n        \"materialId\": 2,\n        \"name\": \"rubber\"\n    },\n    {\n        \"materialId\": 3,\n        \"name\": \"plastic\"\n    },\n    {\n        \"materialId\": 4,\n        \"name\": \"synthetic\"\n    },\n    {\n        \"materialId\": 5,\n        \"name\": \"leather\"\n    },\n    {\n        \"materialId\": 6,\n        \"name\": \"textile\"\n    }\n]"
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAsImlkZW50aXR5IjoibWlsamFuYSIsInJvbGUiOiJhZG1pbmlzdHJhdG9yIiwiaWF0IjoxNjU3NzExODkwLCJleHAiOjE2NTgzMTY2OTAsImlzcyI6ImxvY2FsaG9zdCJ9.wFb_vFqgaZpASxfXUhik24_X3Spn67j1djUgbFkfYEqa22dKTjPBKHNCr0apmKLNsARj_1peVo-NBQjzlaXVTetDuEYmxmIVYvaj6N4qZJ1UdB6XFl0gFWa--JooXCJhSP6Bv0C8fBur9Z1G0Jo49up4aasEkMf_22O225dvvmINmj4gg51ntHTdopUs5aZIQW26DrP0xUXQj888cI8S_cK07nqT-Rj8xCYNPwvTNTBQ4TuboWfrJqjRJ-xhXWotVcpYL-XsILi3wgRuC-M82UXF8pJTVyosa4adyUxmrT6vmSVwfYrJZwJpyl-aVKZtsbhGnRBSQstjCUY88TYy2g",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "API_URL",
+			"value": "http://localhost:40080",
+			"type": "string"
+		}
+	]
+}
